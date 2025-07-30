@@ -1,17 +1,21 @@
-// Ownership
+mod my_struct; 
+
+use my_struct::User; 
+
+// // Ownership
 fn main() {
 let mut boyfriend = String::from("Rose");
 boyfriend = takes_ownership(boyfriend);  
 println!("{}", boyfriend); 
 
 
-//Borrowing
+// //Borrowing
 let owner = String::from("The Data"); 
     let reader = &owner;                   
     println!("{}", reader);                
     println!("{}", owner); 
 
-// Instance of struct
+// // Instance of struct
 
 let user = User {
     userName: String::from("Rose"),
@@ -19,9 +23,23 @@ let user = User {
     email: String::from("rose@gmail.com"),
 };
 
-print!("Name: {}, Age : {}, Email {}",user.userName,user.age,user.email )
+println!("Name: {}, Age : {}, Email {}",user.userName,user.age,user.email );
 
 
+// Option 1: Basic Acessing
+let userStruct = User {
+        userName: String::from("Aaditya"),
+        age: 21,
+        email: String::from("aaditya@gmail.com"),
+    };
+
+    println!("The Name is {} and Age is {}. Email is {}", userStruct.userName, userStruct.age, userStruct.email);
+
+    // Option 2: Advanced Acessing (Check  my_struct)
+    let u= User::userDetails("Aaditya", 20, "aaditya@gmail.com");
+    println!("The Name is {} and Age is {}. Email is {}", u.userName, u.age, u.email);
+
+    
 }
 
 
@@ -32,13 +50,10 @@ bestie // Returns to ex
 }
 
 
-// Struct
 
-struct  User{
-    userName : String,
-    age : u32,
-    email : String
-}
+
+
+
 
 
   
